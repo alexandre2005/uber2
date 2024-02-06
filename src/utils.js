@@ -1,8 +1,8 @@
 import { Platform, PixelRatio } from "react-native";
 
-export default function getPixelSize(pixels){
+export default function getPixelSize(layoutSize) {
     return Platform.select({
-        ios: pixels,
-        android: PixelRatio.getPixelSizeForLayoutSize(pixels)
-    })
+        ios: layoutSize,
+        android: PixelRatio.roundToNearestPixel(layoutSize)
+    });
 }
